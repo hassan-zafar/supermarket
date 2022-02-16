@@ -1,6 +1,8 @@
 import 'package:cheap_price_finder/Database/database.dart';
+import 'package:cheap_price_finder/Models/users.dart';
 import 'package:cheap_price_finder/Services/global_method.dart';
 import 'package:cheap_price_finder/Widgets/custom_toast.dart';
+import 'package:cheap_price_finder/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -138,7 +140,7 @@ class AuthenticationService {
       final UserCredential result = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password)
           .catchError((Object obj) {
-        errorToast(message: obj.toString());
+        CustomToast.errorToast(message: obj.toString());
       });
       final UserCredential user = result;
       assert(user != null);
@@ -157,7 +159,7 @@ class AuthenticationService {
       }
       return user;
     } on FirebaseAuthException catch (e) {
-      errorToast(message: "$e.message");
+      CustomToast.errorToast(message: "$e.message");
     }
   }
 }

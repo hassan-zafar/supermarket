@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:cheap_price_finder/Models/users.dart';
+import 'package:cheap_price_finder/Widgets/custom_toast.dart';
+import 'package:cheap_price_finder/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -118,7 +120,7 @@ class DatabaseMethods {
       // currentUser = userModel;
     }).catchError(
       (Object obj) {
-        errorToast(message: obj.toString());
+        CustomToast.errorToast(message: obj.toString());
       },
     );
   }
