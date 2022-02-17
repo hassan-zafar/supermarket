@@ -1,4 +1,6 @@
+import 'package:cheap_price_finder/Database/auth_methods.dart';
 import 'package:cheap_price_finder/Utils/custom_validator.dart';
+import 'package:cheap_price_finder/Utils/utilities.dart';
 import 'package:cheap_price_finder/Widgets/custom_button.dart';
 import 'package:cheap_price_finder/Widgets/custom_textformfield.dart';
 import 'package:cheap_price_finder/Widgets/password_textformfield.dart';
