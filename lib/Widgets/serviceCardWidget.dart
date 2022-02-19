@@ -1,12 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:volt_arena/inner_screens/service_details.dart';
-import 'package:volt_arena/models/product.dart';
-import 'package:volt_arena/provider/cart_provider.dart';
+import 'package:cheap_price_finder/Utils/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';
-import 'package:volt_arena/utilities/custom_images.dart';
-import 'package:volt_arena/utilities/utilities.dart';
+
 
 class ServiceCardWidget extends StatefulWidget {
   @override
@@ -26,7 +23,7 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
       child: Container(
         height: 120,
         width: 150,
-        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(

@@ -1,20 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cheap_price_finder/Providers/provider/products.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:volt_arena/inner_screens/service_details.dart';
-import 'package:volt_arena/provider/cart_provider.dart';
-import 'package:volt_arena/provider/favs_provider.dart';
-import 'package:volt_arena/provider/products.dart';
-import '../../../../models/product.dart';
-import '../../../../utilities/custom_images.dart';
-import '../../../../utilities/utilities.dart';
+
 
 class ServicesTileWidget extends StatelessWidget {
   const ServicesTileWidget({required Product product, Key? key})
       : _product = product,
         super(key: key);
 
-  final Product _product;
+  final Products _product;
 
   @override
   Widget build(BuildContext context) {

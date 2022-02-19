@@ -1,22 +1,18 @@
 import 'dart:io';
+import 'package:cheap_price_finder/Models/users.dart';
+import 'package:cheap_price_finder/Utils/custom_validator.dart';
+import 'package:cheap_price_finder/Widgets/custom_button.dart';
+import 'package:cheap_price_finder/Widgets/custom_textformfield.dart';
+import 'package:cheap_price_finder/Widgets/custom_toast.dart';
+import 'package:cheap_price_finder/Widgets/password_textformfield.dart';
+import 'package:cheap_price_finder/Widgets/phone_number_fiels.dart';
+import 'package:cheap_price_finder/Widgets/show_loading.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:volt_arena/models/users.dart';
-import 'package:volt_arena/widget/phone_number_fiels.dart';
-import 'package:volt_arena/widget/tools/custom_button.dart';
-import 'package:volt_arena/widget/tools/custom_textformfield.dart';
-import 'package:volt_arena/widget/tools/custom_toast.dart';
-import 'package:volt_arena/widget/tools/password_textformfield.dart';
-import 'package:volt_arena/widget/tools/show_loading.dart';
 import '../../../database/auth_methods.dart';
 import '../../../database/user_api.dart';
-import '../../../utilities/custom_images.dart';
-import '../../../utilities/custom_validator.dart';
-import '../../../utilities/utilities.dart';
 
-import '../landing_page.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -37,7 +33,7 @@ class _SignupScreenState extends State<SignupScreen> {
     print(_number.text);
     if (_key.currentState!.validate()) {
       if (_password.text.trim() == _confirmPassword.text.trim()) {
-        showLoadingDislog(context);
+        showLoadingDialog(context);
         FocusScope.of(context).unfocus();
         final User? _user = await AuthMethod().signupWithEmailAndPassword(
           email: _email.text,
@@ -63,8 +59,6 @@ class _SignupScreenState extends State<SignupScreen> {
           phoneNo: _number.text,
           isAdmin: false,
           imageUrl: _imageURL,
-          createdAt: Timestamp.now(),
-          joinedAt: formattedDate,
           password: _password.text.trim(),
         );
         final bool _save = await UserAPI().addUser(_appUser);

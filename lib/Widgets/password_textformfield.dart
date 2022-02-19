@@ -1,7 +1,7 @@
+import 'package:cheap_price_finder/Utils/custom_validator.dart';
+import 'package:cheap_price_finder/Utils/utilities.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:volt_arena/utilities/custom_validator.dart';
-import '../../utilities/utilities.dart';
 
 class PasswordTextFormField extends StatefulWidget {
   const PasswordTextFormField({

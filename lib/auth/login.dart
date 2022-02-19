@@ -3,9 +3,12 @@ import 'package:cheap_price_finder/Utils/custom_validator.dart';
 import 'package:cheap_price_finder/Utils/utilities.dart';
 import 'package:cheap_price_finder/Widgets/custom_button.dart';
 import 'package:cheap_price_finder/Widgets/custom_textformfield.dart';
+import 'package:cheap_price_finder/Widgets/custom_toast.dart';
 import 'package:cheap_price_finder/Widgets/password_textformfield.dart';
+import 'package:cheap_price_finder/Widgets/show_loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../main_screen.dart';
 import 'forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -48,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomTextButton(
                   onTap: () async {
                     if (_key.currentState!.validate()) {
-                      showLoadingDislog(context);
+                      showLoadingDialog(context);
                       final User? _user =
                           await AuthMethod().loginWithEmailAndPassword(
                         _email.text.trim(),

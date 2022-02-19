@@ -5,8 +5,8 @@ import 'package:cheap_price_finder/Widgets/custom_toast.dart';
 import 'package:cheap_price_finder/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   Future getCurrentUser() async {

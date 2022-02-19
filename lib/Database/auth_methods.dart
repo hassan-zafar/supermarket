@@ -28,8 +28,6 @@ class AuthMethod {
         email: 'guest@guest.com',
         imageUrl: '',
         androidNotificationToken: '',
-        createdAt: Timestamp.now(),
-        joinedAt: formattedDate,
         password: '',
         phoneNo: 'Not Assigned',
         isGuest: true,
@@ -160,3 +158,13 @@ class AuthMethod {
     await _auth.signOut();
   }
 }
+
+
+
+
+
+
+
+
+
+
