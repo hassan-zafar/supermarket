@@ -2,6 +2,8 @@ import 'package:cheap_price_finder/Database/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../consts/collections.dart';
+
 
 
 class UserState extends StatelessWidget {

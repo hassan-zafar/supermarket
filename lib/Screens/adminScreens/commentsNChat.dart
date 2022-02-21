@@ -1,10 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cheap_price_finder/Models/users.dart';
+import 'package:cheap_price_finder/Widgets/custom_toast.dart';
 import 'package:cheap_price_finder/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 // import 'package:timeago/timeago.dart' as timeago;
 import 'package:uuid/uuid.dart';
+
+import '../../Widgets/loadingWidget.dart';
+import '../../consts/consants.dart';
 
 
 class CommentsNChat extends StatefulWidget {
@@ -156,53 +160,50 @@ class CommentsNChatState extends State<CommentsNChat> {
       // }
 
     } else {
-      BotToast.showText(text: "Message field shouldn't be left Empty");
+     CustomToast.errorToast(message: "Message field shouldn't be left Empty");
     }
     _commentNMessagesController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: backgroundColorBoxDecoration(),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            currentUser!.isAdmin! ? "Manage Queries" : "Contact Admin",
-            style: TextStyle(color: Colors.black),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          currentUser!.isAdmin! ? "Manage Queries" : "Contact Admin",
+          style: TextStyle(color: Colors.black),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(bottom: 20.0),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: buildChat(),
-              ),
-              Divider(),
-              ListTile(
-                title: TextFormField(
-                  controller: _commentNMessagesController,
-                  decoration: InputDecoration(
-                    hintText: "Write a message...",
-                  ),
-                ),
-                trailing: IconButton(
-                  onPressed: addChatMessage,
-                  icon: Icon(
-                    Icons.send,
-                    size: 40.0,
-                  ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: buildChat(),
+            ),
+            Divider(),
+            ListTile(
+              title: TextFormField(
+                controller: _commentNMessagesController,
+                decoration: InputDecoration(
+                  hintText: "Write a message...",
                 ),
               ),
-              // SizedBox(
-              //   height: 50,
-              // ),
-            ],
-          ),
+              trailing: IconButton(
+                onPressed: addChatMessage,
+                icon: Icon(
+                  Icons.send,
+                  size: 40.0,
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 50,
+            // ),
+          ],
         ),
       ),
     );

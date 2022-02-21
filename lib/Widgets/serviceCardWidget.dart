@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';
 
+import '../Models/product.dart';
 
 class ServiceCardWidget extends StatefulWidget {
   @override
@@ -34,8 +35,8 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
                 child: (productsAttributes.imageUrl == null ||
                         productsAttributes.imageUrl!.isEmpty)
                     ? Image.asset(CustomImages.icon, fit: BoxFit.cover)
-                    :  CachedNetworkImage(
-                 imageUrl: productsAttributes.imageUrl!,
+                    : CachedNetworkImage(
+                        imageUrl: productsAttributes.imageUrl!,
                         fit: BoxFit.cover),
               ),
               Positioned(

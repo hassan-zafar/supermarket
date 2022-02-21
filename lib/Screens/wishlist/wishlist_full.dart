@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:volt_arena/consts/colors.dart';
-import 'package:volt_arena/models/favs_attr.dart';
-import 'package:volt_arena/provider/favs_provider.dart';
-import 'package:volt_arena/services/global_method.dart';
+import 'package:cheap_price_finder/Services/global_method.dart';
+import 'package:cheap_price_finder/Utils/utilities.dart';
+import 'package:cheap_price_finder/consts/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:volt_arena/utilities/utilities.dart';
+
+import '../../Models/favs_attr.dart';
+import '../../Providers/provider/favs_provider.dart';
 
 class WishlistFull extends StatefulWidget {
   final String productId;

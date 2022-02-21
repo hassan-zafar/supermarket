@@ -1,6 +1,8 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
+import 'Providers/provider/bottom_navigation_bar_provider.dart';
+
 
 class BottomBarScreen extends StatefulWidget {
   static const routeName = '/BottomBarScreen';

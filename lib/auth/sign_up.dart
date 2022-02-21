@@ -7,11 +7,14 @@ import 'package:cheap_price_finder/Widgets/custom_toast.dart';
 import 'package:cheap_price_finder/Widgets/password_textformfield.dart';
 import 'package:cheap_price_finder/Widgets/phone_number_fiels.dart';
 import 'package:cheap_price_finder/Widgets/show_loading.dart';
+import 'package:cheap_price_finder/auth/landing_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../database/auth_methods.dart';
 import '../../../database/user_api.dart';
+import '../Utils/utilities.dart';
 
 
 class SignupScreen extends StatefulWidget {

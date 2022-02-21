@@ -3,6 +3,10 @@ import 'package:cheap_price_finder/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../../Services/authentication_service.dart';
+import '../../Widgets/loadingWidget.dart';
+import '../../auth/landing_page.dart';
+import '../../consts/colors.dart';
 import 'commentsNChat.dart';
 
 class UserNSearch extends StatefulWidget {
@@ -150,9 +154,9 @@ class _UserNSearchState extends State<UserNSearch>
                                       typeSelected = "users";
                                     });
                                   },
-                                  child: GlassContainer(
-                                    opacity: 0.7,
-                                    shadowStrength: 8,
+                                  child: Container(
+                                    // opacity: 0.7,
+                                    // shadowStrength: 8,
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
@@ -177,9 +181,9 @@ class _UserNSearchState extends State<UserNSearch>
                                       typeSelected = "admin";
                                     });
                                   },
-                                  child: GlassContainer(
-                                    opacity: 0.7,
-                                    shadowStrength: 8,
+                                  child: Container(
+                                    // opacity: 0.7,
+                                    // shadowStrength: 8,
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
@@ -256,9 +260,8 @@ class UserResult extends StatelessWidget {
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GlassContainer(
-                opacity: 0.6,
-                shadowStrength: 8,
+              child: Container(
+              
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.grey,
@@ -347,8 +350,8 @@ class UserResult extends StatelessWidget {
     //   "productId": "",
     // });
   }
-  void deleteUser(String email, String password) async {
-    AuthenticationService().deleteUser(email: email, password: password);
-    BotToast.showText(text: 'User Deleted Refresh');
+  void deleteUser( email,  password) async {
+    AuthenticationService().deleteUser(email: email!, password: password!);
+    // BotToast.showText(text: 'User Deleted Refresh');
   }
 }

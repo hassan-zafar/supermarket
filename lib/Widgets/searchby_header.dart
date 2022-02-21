@@ -6,6 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../Screens/wishlist/wishlist.dart';
+
 class SearchByHeader extends SliverPersistentHeaderDelegate {
   final double? flexibleSpace;
   final double? backGroundHeight;
@@ -90,7 +92,6 @@ class SearchByHeader extends SliverPersistentHeaderDelegate {
                         color: ColorsConsts.cartColor,
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(MyBookingsScreen.routeName);
                       },
                     ),
                   ),
@@ -104,28 +105,18 @@ class SearchByHeader extends SliverPersistentHeaderDelegate {
             child: Material(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.grey.shade300,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10.0),
-                splashColor: Colors.grey,
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UserInfo(),
-                  ),
-                ),
-                child: Container(
-                  height: 40,
-                  width: 40,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          'https://cdn1.vectorstock.com/i/thumb-large/62/60/default-avatar-photo-placeholder-profile-image-vector-21666260.jpg',
-                        ),
-                        fit: BoxFit.cover,
-                      )),
-                ),
+              child: Container(
+                height: 40,
+                width: 40,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        'https://cdn1.vectorstock.com/i/thumb-large/62/60/default-avatar-photo-placeholder-profile-image-vector-21666260.jpg',
+                      ),
+                      fit: BoxFit.cover,
+                    )),
               ),
             ),
           ),
