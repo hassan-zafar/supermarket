@@ -2,9 +2,9 @@ import 'package:cheap_price_finder/Database/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Screens/landing_page.dart';
 import '../consts/collections.dart';
-
-
+import '../main_screen.dart';
 
 class UserState extends StatelessWidget {
   @override
@@ -26,9 +26,7 @@ class UserState extends StatelessWidget {
                   .then((value) {
                 print('The user is already logged in');
               });
-              return HomePage();
-
-              // MainScreens();
+              return MainScreens();
             } else {
               print('The user didn\'t login yet');
               return

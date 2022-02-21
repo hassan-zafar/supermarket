@@ -19,8 +19,8 @@ class _OrderFullState extends State<OrderFull> {
     final orderAttrProvider = Provider.of<OrdersAttr>(context);
 
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, ServiceDetailsScreen.routeName,
-          arguments: orderAttrProvider.productId),
+      // onTap: () => Navigator.pushNamed(context, ServiceDetailsScreen.routeName,
+      //     arguments: orderAttrProvider.productId),
       child: Container(
         height: 150,
         margin: const EdgeInsets.all(10),
