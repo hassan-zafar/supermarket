@@ -10,14 +10,14 @@ class CartProvider with ChangeNotifier {
 
   double get totalAmount {
     var total = 0.0;
-    _cartItems.forEach((key, value) {
-      total += value.price! * value.quantity!;
-    });
+    // _cartItems.forEach((key, value) {
+    //   total += value.price! * value.quantity!;
+    // });
     return total;
   }
 
   void addProductToCart(
-      String productId, double price, String title, String imageUrl) {
+      String productId, String price, String title, String imageUrl) {
     if (_cartItems.containsKey(productId)) {
       // removeItem(productId);
       _cartItems.update(

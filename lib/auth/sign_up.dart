@@ -16,7 +16,6 @@ import '../../../database/auth_methods.dart';
 import '../../../database/user_api.dart';
 import '../Utils/utilities.dart';
 
-
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
   static const String routeName = '/SignupScreen';
@@ -94,21 +93,22 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget _imageWidget() {
     return Stack(
       children: <Widget>[
-        CircleAvatar(
-          radius: 68,
-          backgroundColor: Theme.of(context).primaryColor,
-          child: CircleAvatar(
-            radius: 66,
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            child: CircleAvatar(
-              radius: 60,
-              backgroundColor: Theme.of(context).primaryColor,
-              backgroundImage: _pickedImage != null
-                  ? FileImage(_pickedImage!)
-                  : AssetImage(CustomImages.icon) as ImageProvider,
-            ),
-          ),
-        ),
+        // CircleAvatar(
+        //   radius: 68,
+        //   backgroundColor: Theme.of(context).primaryColor,
+        //   child: CircleAvatar(
+        //     radius: 66,
+        //     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        //     child: CircleAvatar(
+        //       radius: 60,
+        //       backgroundColor: Theme.of(context).primaryColor,
+        //       backgroundImage: _pickedImage != null
+        //           ? FileImage(_pickedImage!)
+        //           : AssetImage(icon) as ImageProvider,
+        //     ),
+        //   ),
+        // ),
+
         Positioned(
           top: -6,
           right: -6,

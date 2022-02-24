@@ -5,7 +5,7 @@ class CartAttr with ChangeNotifier {
   final String? productId;
   final String? title;
   final int? quantity;
-  final double? price;
+  final String? price;
   final String? imageUrl;
 
   CartAttr(

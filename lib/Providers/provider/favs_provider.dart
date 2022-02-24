@@ -9,7 +9,7 @@ class FavsProvider with ChangeNotifier {
   }
 
   void addAndRemoveFromFav(
-      String productId, double price, String title, String imageUrl) {
+      String productId, String price, String title, String imageUrl) {
     if (_favsItems.containsKey(productId)) {
       removeItem(productId);
     } else {

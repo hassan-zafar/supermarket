@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 import 'Providers/provider/bottom_navigation_bar_provider.dart';
-
+import 'Screens/adminScreens/allUsers.dart';
+import 'Screens/adminScreens/chatLists.dart';
+import 'Screens/cart/cart.dart';
+import 'Screens/search.dart';
 
 class BottomBarScreen extends StatefulWidget {
   static const routeName = '/BottomBarScreen';
@@ -12,13 +16,12 @@ class BottomBarScreen extends StatefulWidget {
 
 class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Widget> pages = <Widget>[
-    ServicesScreen(),
     Search(),
-    // MyBookingsScreen(),
+    MyBookingsScreen(),
     // CalenderScreen(),
-    // // UserInfo(),
-    // UserNSearch(),
-    // ChatLists(),
+    // UserInfo(),
+    UserNSearch(),
+    ChatLists(),
     // UploadProductForm()
   ];
 
@@ -39,13 +42,13 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           unselectedItemColor: Colors.grey.shade700,
           selectedItemColor: Colors.black,
           currentIndex: _page.selectedPage,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.room_service),
               label: 'Services',
             ),
             BottomNavigationBarItem(
-              icon: Icon(MyAppIcons.search),
+              icon: Icon(Icons.search),
               label: 'Search',
             ),
 
@@ -77,7 +80,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           ],
         ),
       ),
-      drawer: CustomDrawer(),
     );
   }
 

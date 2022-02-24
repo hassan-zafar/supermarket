@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cheap_price_finder/Utils/utilities.dart';
+import 'package:cheap_price_finder/consts/consants.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +19,8 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
     print(productsAttributes);
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, ServiceDetailsScreen.routeName,
-            arguments: productsAttributes.productId);
+        // Navigator.pushNamed(context, ServiceDetailsScreen.routeName,
+        //     arguments: productsAttributes.productId);
       },
       child: Container(
         height: 120,
@@ -34,7 +35,7 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
                 width: double.infinity,
                 child: (productsAttributes.imageUrl == null ||
                         productsAttributes.imageUrl!.isEmpty)
-                    ? Image.asset(CustomImages.icon, fit: BoxFit.cover)
+                    ? Image.asset(logo, fit: BoxFit.cover)
                     : CachedNetworkImage(
                         imageUrl: productsAttributes.imageUrl!,
                         fit: BoxFit.cover),

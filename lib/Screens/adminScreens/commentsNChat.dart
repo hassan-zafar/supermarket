@@ -153,11 +153,11 @@ class CommentsNChatState extends State<CommentsNChat> {
       //     "mediaUrl": postMediaUrl,
       //     "timestamp": timestamp,
       //   });
-      sendAndRetrieveMessage(
-          token: widget.chatNotificationToken!,
-          message: _commentNMessagesController.text,
-          title: "Admin Chats",
-          context: context);
+      // sendAndRetrieveMessage(
+      //     token: widget.chatNotificationToken!,
+      //     message: _commentNMessagesController.text,
+      //     title: "Admin Chats",
+      //     context: context);
       // }
 
     } else {
