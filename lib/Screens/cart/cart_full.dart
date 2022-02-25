@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -121,25 +120,26 @@ class _CartFullState extends State<CartFull> {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Text('Sub Total:'),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        // FittedBox(
-                        //   child: Text(
-                        //     '${subTotal.toStringAsFixed(2)} \$',
-                        //     style: TextStyle(
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.w600,
-                        //         color: themeChange.darkTheme
-                        //             ? Colors.brown.shade900
-                        //             : Theme.of(context).accentColor),
-                        //   ),
-                        // ),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Text('Sub Total:'),
+                    //     SizedBox(
+                    //       width: 5,
+                    //     ),
+                    //     FittedBox(
+                    //       child: Text(
+                    //         '${subTotal.toStringAsFixed(2)} \$',
+                    //         style: TextStyle(
+                    //             fontSize: 16,
+                    //             fontWeight: FontWeight.w600,
+                    //             color: themeChange.darkTheme
+                    //                 ? Colors.brown.shade900
+                    //                 : Theme.of(context).accentColor),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+
                     Row(
                       children: [
                         Text(
