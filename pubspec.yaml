@@ -33,6 +33,7 @@ dependencies:
   google_sign_in:
   cloud_firestore:
   firebase_messaging:
+  firebase_core: 
   firebase_storage:
   fluttertoast:
   cached_network_image:

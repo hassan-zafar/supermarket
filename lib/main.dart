@@ -1,31 +1,131 @@
+import 'package:cheap_price_finder/Screens/cart/cart.dart';
+import 'package:cheap_price_finder/Screens/feeds.dart';
+import 'package:cheap_price_finder/Screens/product_details.dart';
+import 'package:cheap_price_finder/Screens/wishlist/wishlist.dart';
+import 'package:cheap_price_finder/auth/login.dart';
+import 'package:cheap_price_finder/main_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'Providers/provider/cart_provider.dart';
+import 'Providers/provider/dark_theme_provider.dart';
+import 'Providers/provider/favs_provider.dart';
+import 'Providers/provider/orders_provider.dart';
+import 'Providers/provider/products.dart';
+import 'Services/user_state.dart';
+import 'consts/theme_data.dart';
+
+Future<void> main() async {   WidgetsFlutterBinding.ensureInitialized();
+
+   await Firebase.initializeApp();
+  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  // await flutterLocalNotificationsPlugin
+  //     .resolvePlatformSpecificImplementation<
+  //         AndroidFlutterLocalNotificationsPlugin>()
+  //     ?.createNotificationChannel(channel);
+
+  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
+  runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+ MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+
+  void getCurrentAppTheme() async {
+    themeChangeProvider.darkTheme =
+        await themeChangeProvider.darkThemePreferences.getTheme();
+  }
+
+  @override
+  void initState() {
+    getCurrentAppTheme();
+    super.initState();
+  }  
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const MaterialApp(
+              home:  Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            const MaterialApp(
+              home:  Scaffold(
+                body: Center(
+                  child: Text('Error occured'),
+                ),
+              ),
+            );
+          }
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (_) {
+                return themeChangeProvider;
+              }),
+              ChangeNotifierProvider(
+                create: (_) => Products(),
+              ),
+              ChangeNotifierProvider(
+                create: (_) => CartProvider(),
+              ),
+              ChangeNotifierProvider(
+                create: (_) => FavsProvider(),
+              ),
+              ChangeNotifierProvider(
+                create: (_) => OrdersProvider(),
+              ),
+            ],
+            child: Consumer<DarkThemeProvider>(
+              builder: (context, themeChangeProvider, ch) {
+                return MaterialApp(
+                  title: 'Volt Arena',
+                  theme:
+                      Styles.themeData(themeChangeProvider.darkTheme, context),
+                  home: UserState(),
+                  //initialRoute: '/',
+                  routes: {
+                    // '/': (ctx) => LandingPage(),
+                    // WebhookPaymentScreen.routeName: (ctx) =>
+                    //     WebhookPaymentScreen(),
+                    MyBookingsScreen.routeName: (ctx) => MyBookingsScreen(),
+                    Feeds.routeName: (ctx) => Feeds(),
+                    WishlistScreen.routeName: (ctx) => WishlistScreen(),
+                    MainScreens.routeName: (ctx) => MainScreens(),
+                    ProductDetails.routeName: (ctx) => ProductDetails(),
+                    LoginScreen.routeName: (ctx) => LoginScreen(),
+                    SignUpScreen.routeName: (ctx) => SignUpScreen(),
+                    BottomBarScreen.routeName: (ctx) => BottomBarScreen(),
+                    UploadProductForm.routeName: (ctx) => UploadProductForm(),
+                    ForgetPassword.routeName: (ctx) => ForgetPassword(),
+                    OrderScreen.routeName: (ctx) => OrderScreen(),
+                  },
+                );
+              },
+            ),
+          );
+        });
   }
 }
 
