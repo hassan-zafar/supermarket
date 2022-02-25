@@ -1,8 +1,12 @@
 import 'package:cheap_price_finder/Screens/cart/cart.dart';
 import 'package:cheap_price_finder/Screens/feeds.dart';
+import 'package:cheap_price_finder/Screens/orders/order.dart';
 import 'package:cheap_price_finder/Screens/product_details.dart';
 import 'package:cheap_price_finder/Screens/wishlist/wishlist.dart';
+import 'package:cheap_price_finder/auth/forget_password.dart';
 import 'package:cheap_price_finder/auth/login.dart';
+import 'package:cheap_price_finder/auth/sign_up.dart';
+import 'package:cheap_price_finder/bottom_bar.dart';
 import 'package:cheap_price_finder/main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -17,9 +21,10 @@ import 'Providers/provider/products.dart';
 import 'Services/user_state.dart';
 import 'consts/theme_data.dart';
 
-Future<void> main() async {   WidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-   await Firebase.initializeApp();
+  await Firebase.initializeApp();
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   // await flutterLocalNotificationsPlugin
@@ -32,11 +37,11 @@ Future<void> main() async {   WidgetsFlutterBinding.ensureInitialized();
     badge: true,
     sound: true,
   );
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
- MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -54,7 +59,8 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     getCurrentAppTheme();
     super.initState();
-  }  
+  }
+
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
@@ -64,7 +70,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const MaterialApp(
-              home:  Scaffold(
+              home: Scaffold(
                 body: Center(
                   child: CircularProgressIndicator(),
                 ),
@@ -72,7 +78,7 @@ class _MyAppState extends State<MyApp> {
             );
           } else if (snapshot.hasError) {
             const MaterialApp(
-              home:  Scaffold(
+              home: Scaffold(
                 body: Center(
                   child: Text('Error occured'),
                 ),
@@ -114,10 +120,9 @@ class _MyAppState extends State<MyApp> {
                     WishlistScreen.routeName: (ctx) => WishlistScreen(),
                     MainScreens.routeName: (ctx) => MainScreens(),
                     ProductDetails.routeName: (ctx) => ProductDetails(),
-                    LoginScreen.routeName: (ctx) => LoginScreen(),
-                    SignUpScreen.routeName: (ctx) => SignUpScreen(),
+                    LoginScreen.routeName: (ctx) => const LoginScreen(),
+                    SignupScreen.routeName: (ctx) => const SignupScreen(),
                     BottomBarScreen.routeName: (ctx) => BottomBarScreen(),
-                    UploadProductForm.routeName: (ctx) => UploadProductForm(),
                     ForgetPassword.routeName: (ctx) => ForgetPassword(),
                     OrderScreen.routeName: (ctx) => OrderScreen(),
                   },
