@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cheap_price_finder/Services/global_method.dart';
+import 'package:supermarket/Services/global_method.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../auth/login.dart';
 import '../consts/colors.dart';
-
 
 class LandingPage extends StatefulWidget {
   @override
@@ -118,7 +117,8 @@ class _LandingPageState extends State<LandingPage>
         body: Stack(children: [
       Image.asset(
         "assets/images/black.jpg",
-        errorBuilder: (context, url, error) => const Center(child: const Icon(Icons.error)),
+        errorBuilder: (context, url, error) =>
+            const Center(child: const Icon(Icons.error)),
         fit: BoxFit.cover,
         height: double.infinity,
         width: double.infinity,

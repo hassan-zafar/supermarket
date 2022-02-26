@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cheap_price_finder/Utils/utilities.dart';
-import 'package:cheap_price_finder/consts/consants.dart';
+import 'package:supermarket/Utils/utilities.dart';
+import 'package:supermarket/consts/consants.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';

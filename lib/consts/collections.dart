@@ -1,4 +1,4 @@
-import 'package:cheap_price_finder/Models/users.dart';
+import 'package:supermarket/Models/users.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final userRef = FirebaseFirestore.instance.collection('users');

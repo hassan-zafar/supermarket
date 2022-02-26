@@ -1,7 +1,6 @@
-import 'package:cheap_price_finder/consts/colors.dart';
+import 'package:supermarket/consts/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 class OrderEmpty extends StatelessWidget {
   @override
@@ -16,7 +15,7 @@ class OrderEmpty extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fill,
-              image:  NetworkImage(
+              image: NetworkImage(
                 'https://image.flaticon.com/icons/png/128/3759/3759041.png',
               ),
             ),

@@ -1,4 +1,4 @@
-import 'package:cheap_price_finder/Models/cart_attr.dart';
+import 'package:supermarket/Models/cart_attr.dart';
 import 'package:flutter/cupertino.dart';
 
 class CartProvider with ChangeNotifier {

@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart';
-import 'package:cheap_price_finder/Providers/provider/cart_provider.dart';
-import 'package:cheap_price_finder/Providers/provider/favs_provider.dart';
-import 'package:cheap_price_finder/consts/colors.dart';
+import 'package:supermarket/Providers/provider/cart_provider.dart';
+import 'package:supermarket/Providers/provider/favs_provider.dart';
+import 'package:supermarket/consts/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -91,8 +91,7 @@ class SearchByHeader extends SliverPersistentHeaderDelegate {
                         Icons.shopping_cart,
                         color: ColorsConsts.cartColor,
                       ),
-                      onPressed: () {
-                      },
+                      onPressed: () {},
                     ),
                   ),
                 ),

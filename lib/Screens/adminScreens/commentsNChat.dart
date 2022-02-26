@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cheap_price_finder/Models/users.dart';
-import 'package:cheap_price_finder/Widgets/custom_toast.dart';
-import 'package:cheap_price_finder/consts/collections.dart';
+import 'package:supermarket/Models/users.dart';
+import 'package:supermarket/Widgets/custom_toast.dart';
+import 'package:supermarket/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 // import 'package:timeago/timeago.dart' as timeago;
@@ -10,7 +10,6 @@ import 'package:uuid/uuid.dart';
 import '../../Services/notificationHandler.dart';
 import '../../Widgets/loadingWidget.dart';
 import '../../consts/consants.dart';
-
 
 class CommentsNChat extends StatefulWidget {
   // final String? postId;
@@ -161,7 +160,7 @@ class CommentsNChatState extends State<CommentsNChat> {
       // }
 
     } else {
-     CustomToast.errorToast(message: "Message field shouldn't be left Empty");
+      CustomToast.errorToast(message: "Message field shouldn't be left Empty");
     }
     _commentNMessagesController.clear();
   }

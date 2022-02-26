@@ -1,4 +1,4 @@
-# cheap_price_finder
+# supermarket
 
 A new Flutter project.
 

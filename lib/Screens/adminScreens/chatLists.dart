@@ -1,5 +1,5 @@
-import 'package:cheap_price_finder/Screens/adminScreens/commentsNChat.dart';
-import 'package:cheap_price_finder/consts/collections.dart';
+import 'package:supermarket/Screens/adminScreens/commentsNChat.dart';
+import 'package:supermarket/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -37,8 +37,7 @@ class _ChatListsState extends State<ChatLists> {
               return Center(
                 child: Text(
                   "No Active Chat Heads!!",
-                  style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                 ),
               );
             }
@@ -56,8 +55,8 @@ class _ChatListsState extends State<ChatLists> {
                         MaterialPageRoute(
                             builder: (context) => CommentsNChat(
                                   chatId: chatHeads[index].userId,
-                                  chatNotificationToken: chatHeads[index]
-                                      .androidNotificationToken,
+                                  chatNotificationToken:
+                                      chatHeads[index].androidNotificationToken,
                                   heroMsg: chatHeads[index].comment,
                                 ))),
                     child: ListTile(

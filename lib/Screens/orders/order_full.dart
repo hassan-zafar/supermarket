@@ -1,6 +1,6 @@
-import 'package:cheap_price_finder/Models/orders_attr.dart';
-import 'package:cheap_price_finder/Providers/provider/cart_provider.dart';
-import 'package:cheap_price_finder/Services/global_method.dart';
+import 'package:supermarket/Models/orders_attr.dart';
+import 'package:supermarket/Providers/provider/cart_provider.dart';
+import 'package:supermarket/Services/global_method.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -75,7 +75,6 @@ class _OrderFullState extends State<OrderFull> {
                                     .collection('order')
                                     .doc(orderAttrProvider.orderId)
                                     .delete();
-                               
                               }, context);
                               //
                             },

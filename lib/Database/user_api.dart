@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:cheap_price_finder/Database/user_local_data.dart';
-import 'package:cheap_price_finder/Models/users.dart';
-import 'package:cheap_price_finder/Widgets/custom_toast.dart';
+import 'package:supermarket/Database/user_local_data.dart';
+import 'package:supermarket/Models/users.dart';
+import 'package:supermarket/Widgets/custom_toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 

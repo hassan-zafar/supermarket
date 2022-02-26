@@ -1,9 +1,9 @@
-import 'package:cheap_price_finder/Database/auth_methods.dart';
-import 'package:cheap_price_finder/Utils/utilities.dart';
-import 'package:cheap_price_finder/Widgets/show_loading.dart';
-import 'package:cheap_price_finder/auth/login.dart';
-import 'package:cheap_price_finder/auth/sign_up.dart';
-import 'package:cheap_price_finder/consts/consants.dart';
+import 'package:supermarket/Database/auth_methods.dart';
+import 'package:supermarket/Utils/utilities.dart';
+import 'package:supermarket/Widgets/show_loading.dart';
+import 'package:supermarket/auth/login.dart';
+import 'package:supermarket/auth/sign_up.dart';
+import 'package:supermarket/consts/consants.dart';
 import 'package:flutter/material.dart';
 import '../main_screen.dart';
 

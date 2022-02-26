@@ -1,5 +1,5 @@
-import 'package:cheap_price_finder/Providers/provider/orders_provider.dart';
-import 'package:cheap_price_finder/Services/global_method.dart';
+import 'package:supermarket/Providers/provider/orders_provider.dart';
+import 'package:supermarket/Services/global_method.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'order_empty.dart';

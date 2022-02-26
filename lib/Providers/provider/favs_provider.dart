@@ -1,4 +1,4 @@
-import 'package:cheap_price_finder/Models/favs_attr.dart';
+import 'package:supermarket/Models/favs_attr.dart';
 import 'package:flutter/cupertino.dart';
 
 class FavsProvider with ChangeNotifier {

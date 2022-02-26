@@ -1,6 +1,6 @@
 {
-    "name": "cheap_price_finder",
-    "short_name": "cheap_price_finder",
+    "name": "supermarket",
+    "short_name": "supermarket",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

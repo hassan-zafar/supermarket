@@ -1,5 +1,5 @@
-import 'package:cheap_price_finder/Models/users.dart';
-import 'package:cheap_price_finder/consts/collections.dart';
+import 'package:supermarket/Models/users.dart';
+import 'package:supermarket/consts/collections.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -100,9 +100,8 @@ class _UserNSearchState extends State<UserNSearch>
     return SafeArea(
       child: Scaffold(
         appBar: buildSearchField(context),
-        body: searchResultsFuture == null
-            ? buildAllUsers()
-            : buildSearchResult(),
+        body:
+            searchResultsFuture == null ? buildAllUsers() : buildSearchResult(),
       ),
     );
   }
@@ -261,7 +260,6 @@ class UserResult extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-              
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.grey,
@@ -350,7 +348,7 @@ class UserResult extends StatelessWidget {
     //   "productId": "",
     // });
   }
-  void deleteUser( email,  password) async {
+  void deleteUser(email, password) async {
     AuthenticationService().deleteUser(email: email!, password: password!);
     // BotToast.showText(text: 'User Deleted Refresh');
   }

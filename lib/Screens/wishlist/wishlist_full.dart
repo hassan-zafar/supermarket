@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cheap_price_finder/Services/global_method.dart';
-import 'package:cheap_price_finder/Utils/utilities.dart';
-import 'package:cheap_price_finder/consts/colors.dart';
+import 'package:supermarket/Services/global_method.dart';
+import 'package:supermarket/Utils/utilities.dart';
+import 'package:supermarket/consts/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,9 +44,8 @@ class _WishlistFullState extends State<WishlistFull> {
                         SizedBox(
                           width: 60,
                           height: 60,
-                          child:  CachedNetworkImage(
-                 imageUrl: 
-                            favsAttr.imageUrl!,
+                          child: CachedNetworkImage(
+                            imageUrl: favsAttr.imageUrl!,
                             fit: BoxFit.cover,
                           ),
                         ),

@@ -1,17 +1,17 @@
-import 'package:cheap_price_finder/Screens/cart/cart.dart';
-import 'package:cheap_price_finder/Screens/feeds.dart';
-import 'package:cheap_price_finder/Screens/orders/order.dart';
-import 'package:cheap_price_finder/Screens/product_details.dart';
-import 'package:cheap_price_finder/Screens/wishlist/wishlist.dart';
-import 'package:cheap_price_finder/auth/forget_password.dart';
-import 'package:cheap_price_finder/auth/login.dart';
-import 'package:cheap_price_finder/auth/sign_up.dart';
-import 'package:cheap_price_finder/bottom_bar.dart';
-import 'package:cheap_price_finder/main_screen.dart';
+import 'package:supermarket/Screens/cart/cart.dart';
+import 'package:supermarket/Screens/feeds.dart';
+import 'package:supermarket/Screens/orders/order.dart';
+import 'package:supermarket/Screens/product_details.dart';
+import 'package:supermarket/Screens/wishlist/wishlist.dart';
+import 'package:supermarket/auth/forget_password.dart';
+import 'package:supermarket/auth/sign_up.dart';
+import 'package:supermarket/bottom_bar.dart';
+import 'package:supermarket/main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:supermarket/auth/login.dart';
 
 import 'Providers/provider/cart_provider.dart';
 import 'Providers/provider/dark_theme_provider.dart';

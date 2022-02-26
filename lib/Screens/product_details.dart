@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:badges/badges.dart';
-import 'package:cheap_price_finder/Screens/wishlist/wishlist.dart';
+import 'package:supermarket/Screens/wishlist/wishlist.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

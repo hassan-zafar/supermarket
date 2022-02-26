@@ -1,6 +1,4 @@
-
-
-import 'package:cheap_price_finder/Models/users.dart';
+import 'package:supermarket/Models/users.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserLocalData {

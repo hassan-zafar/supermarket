@@ -1,4 +1,4 @@
-import 'package:cheap_price_finder/Database/database.dart';
+import 'package:supermarket/Database/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

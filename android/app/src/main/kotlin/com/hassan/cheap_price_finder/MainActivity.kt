@@ -1,4 +1,4 @@
-package com.hassan.cheap_price_finder
+package com.hassan.supermarket
 
 import io.flutter.embedding.android.FlutterActivity
 

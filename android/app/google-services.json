@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "925077119840",
+    "project_id": "supermarkets-670c4",
+    "storage_bucket": "supermarkets-670c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925077119840:android:817b0a18a91c94c8543405",
+        "android_client_info": {
+          "package_name": "com.hassan.supermarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925077119840-f8undrkkqkqkk6msqufhaocu27vmq580.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hassan.supermarket",
+            "certificate_hash": "d3984de38e8552e8a961dbb0688d5693105fc273"
+          }
+        },
+        {
+          "client_id": "925077119840-urj10hk124kpqk1salq0kfu5784at8i3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA14ZkZW_jl_ryfwPX3Mj5fOZHXOPN0rtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925077119840-urj10hk124kpqk1salq0kfu5784at8i3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

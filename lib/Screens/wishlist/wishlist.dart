@@ -1,5 +1,5 @@
-import 'package:cheap_price_finder/Providers/provider/favs_provider.dart';
-import 'package:cheap_price_finder/Services/global_method.dart';
+import 'package:supermarket/Providers/provider/favs_provider.dart';
+import 'package:supermarket/Services/global_method.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +20,8 @@ class WishlistScreen extends StatelessWidget {
               elevation: 0,
               backgroundColor: Colors.transparent,
             ),
-            body: WishlistEmpty(),)
+            body: WishlistEmpty(),
+          )
         : Scaffold(
             appBar: AppBar(
               title: Text('Wishlist (${favsProvider.getFavsItems.length})'),
@@ -28,10 +29,11 @@ class WishlistScreen extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     globalMethods.showDialogg(
-                        'Clear wishlist!',
-                        'Your wishlist will be cleared!',
-                        () => favsProvider.clearFavs(),
-                        context,);
+                      'Clear wishlist!',
+                      'Your wishlist will be cleared!',
+                      () => favsProvider.clearFavs(),
+                      context,
+                    );
                     // cartProvider.clearCart();
                   },
                   child: Text('Clear List'),

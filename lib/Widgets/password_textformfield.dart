@@ -1,5 +1,5 @@
-import 'package:cheap_price_finder/Utils/custom_validator.dart';
-import 'package:cheap_price_finder/Utils/utilities.dart';
+import 'package:supermarket/Utils/custom_validator.dart';
+import 'package:supermarket/Utils/utilities.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

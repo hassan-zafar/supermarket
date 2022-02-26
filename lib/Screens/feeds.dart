@@ -1,8 +1,7 @@
 import 'package:badges/badges.dart';
-import 'package:cheap_price_finder/Screens/wishlist/wishlist.dart';
+import 'package:supermarket/Screens/wishlist/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 import '../Models/product.dart';
 import '../Providers/provider/cart_provider.dart';
@@ -12,8 +11,7 @@ import '../Widgets/feeds_products.dart';
 import '../consts/colors.dart';
 import 'cart/cart.dart';
 
-
-class Feeds extends StatefulWidget with ChangeNotifier{
+class Feeds extends StatefulWidget with ChangeNotifier {
   static const routeName = '/Feeds';
 
   @override
@@ -84,7 +82,7 @@ class _FeedsState extends State<Feeds> {
                 ),
                 child: IconButton(
                   icon: Icon(
-                   Icons.shopping_cart,
+                    Icons.shopping_cart,
                     color: ColorsConsts.cartColor,
                   ),
                   onPressed: () {
