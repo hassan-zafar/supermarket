@@ -7,7 +7,7 @@ import 'Screens/adminScreens/allUsers.dart';
 import 'Screens/adminScreens/chatLists.dart';
 import 'Screens/cart/cart.dart';
 import 'Screens/search.dart';
-
+import 'Screens/user_info.dart';
 class BottomBarScreen extends StatefulWidget {
   static const routeName = '/BottomBarScreen';
   @override
@@ -19,7 +19,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     Search(),
     MyBookingsScreen(),
     // CalenderScreen(),
-    // UserInfo(),
+    UserInfoScreen(),
     UserNSearch(),
     ChatLists(),
     // UploadProductForm()
@@ -43,36 +43,36 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           selectedItemColor: Colors.black,
           currentIndex: _page.selectedPage,
           items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.room_service),
-              label: 'Services',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.room_service),
+            //   label: 'Services',
+            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Search',
             ),
 
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.shopping_cart_rounded),
-            //   label: 'BOOKINGS',
-            // ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart_rounded),
+              label: 'BOOKINGS',
+            ),
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.calendar_today),
             //   label: 'All Bookings',
             // ),
             // // BottomNavigationBarItem(icon: Icon(MyAppIcons.user), label: 'User'),
 
-            // // admin screen
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.people),
-            //   label: 'All Users',
-            // ),
+            // admin screen
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'All Users',
+            ),
 
-            // // admin screen
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.chat_bubble),
-            //   label: 'Admin Chats',
-            // ),
+            // admin screen
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble),
+              label: 'Admin Chats',
+            ),
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.upload),
             //   label: 'Upload Product',

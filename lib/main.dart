@@ -1,3 +1,4 @@
+import 'package:supermarket/Providers/provider/bottom_navigation_bar_provider.dart';
 import 'package:supermarket/Screens/cart/cart.dart';
 import 'package:supermarket/Screens/feeds.dart';
 import 'package:supermarket/Screens/orders/order.dart';
@@ -101,6 +102,9 @@ class _MyAppState extends State<MyApp> {
               ),
               ChangeNotifierProvider(
                 create: (_) => OrdersProvider(),
+              ),
+              ChangeNotifierProvider(
+                create: (_) => BottomNavigationBarProvider(),
               ),
             ],
             child: Consumer<DarkThemeProvider>(
