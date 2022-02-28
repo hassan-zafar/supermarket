@@ -33,11 +33,11 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
               SizedBox(
                 height: double.infinity,
                 width: double.infinity,
-                child: (productsAttributes.imageUrl == null ||
-                        productsAttributes.imageUrl!.isEmpty)
+                child: (productsAttributes.imageURL == null ||
+                        productsAttributes.imageURL!.isEmpty)
                     ? Image.asset(logo, fit: BoxFit.cover)
                     : CachedNetworkImage(
-                        imageUrl: productsAttributes.imageUrl!,
+                        imageUrl: productsAttributes.imageURL!,
                         fit: BoxFit.cover),
               ),
               Positioned(

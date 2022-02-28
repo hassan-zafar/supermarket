@@ -40,7 +40,7 @@ class FeedDialog extends StatelessWidget {
               color: Theme.of(context).scaffoldBackgroundColor,
             ),
             child: Image.network(
-              prodAttr.imageUrl!,
+              prodAttr.imageURL!,
             ),
           ),
           Container(
@@ -57,7 +57,7 @@ class FeedDialog extends StatelessWidget {
                                   productId,
                                   prodAttr.price!,
                                   prodAttr.Name!,
-                                  prodAttr.imageUrl!),
+                                  prodAttr.imageURL!),
                               Navigator.canPop(context)
                                   ? Navigator.pop(context)
                                   : null
@@ -87,7 +87,7 @@ class FeedDialog extends StatelessWidget {
                                   productId,
                                   prodAttr.price!,
                                   prodAttr.Name!,
-                                  prodAttr.imageUrl!);
+                                  prodAttr.imageURL!);
                               Navigator.canPop(context)
                                   ? Navigator.pop(context)
                                   : null;

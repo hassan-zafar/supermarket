@@ -9,29 +9,33 @@ class Products with ChangeNotifier {
   }
 
   Future<void> fetchProducts() async {
-    print('Fetch method is called');
-    await FirebaseFirestore.instance
-        .collection('products')
-        .get()
-        .then((QuerySnapshot productsSnapshot) {
-      _products = [];
-      productsSnapshot.docs.forEach((element) {
-        // print('element.get(productBrand), ${element.get('productBrand')}');
-        _products.insert(0, Product.fromDocument(element));
-        Product(
-            productId: element.get('productId'),
-            Name: element.get('productTitle'),
-            Description: element.get('productDescription'),
-            price: element.get('price'),
-            imageUrl: element.get('productImage'),
-            isFavorite: element.get('isFavorite'),
-            isIndividual: element.get('isIndividual'),
-            );
-      });
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('products').get();
+    snapshot.docs.forEach((element) {
+      _products.add(Product.fromDocument(element));
     });
+
+    // print('Fetch method is called');
+    // await FirebaseFirestore.instance
+    //     .collection('products')
+    //     .get()
+    //     .then((QuerySnapshot productsSnapshot) {
+    //   _products = [];
+    //   productsSnapshot.docs.forEach((element) {
+    //     // print('element.get(productBrand), ${element.get('productBrand')}');
+    //     _products.insert(0, Product.fromDocument(element));
+    //     Product(
+    //       productId: element.get('productId'),
+    //       Name: element.get('productTitle'),
+    //       Description: element.get('productDescription'),
+    //       price: element.get('price'),
+    //       imageUrl: element.get('productImage'),
+    //       isFavorite: element.get('isFavorite'),
+    //       isIndividual: element.get('isIndividual'),
+    //     );
+    //   });
+    // });
   }
-
-
 
   Product findById(String productId) {
     return _products.firstWhere((element) => element.productId == productId);
@@ -46,10 +50,20 @@ class Products with ChangeNotifier {
   // }
 
   List<Product> searchQuery(String searchText) {
+    print(_products.length);
     List<Product> _searchList = _products
         .where((element) =>
             element.Name!.toLowerCase().contains(searchText.toLowerCase()))
         .toList();
+    // QuerySnapshot snapshot = await FirebaseFirestore.instance
+    //     .collection('products')
+    //     .where('Name', isGreaterThanOrEqualTo: searchText)
+    //     .get();
+    // .orderBy('counter_selected');
+    // List<Product> allProducts = [];
+    // snapshot.docs.forEach((element) {
+    //   allProducts.add(Product.fromDocument(element));
+    // });
     return _searchList;
   }
   /* 

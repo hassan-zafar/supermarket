@@ -144,7 +144,7 @@ class _LandingPageState extends State<LandingPage>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/volt_arenaLogo.png",
+              "assets/images/logo.png",
               errorBuilder: (context, url, error) =>
                   const Center(child: const Icon(Icons.error)),
             ),

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:supermarket/Screens/feeds.dart';
 
 import 'Providers/provider/bottom_navigation_bar_provider.dart';
 import 'Screens/adminScreens/allUsers.dart';
@@ -17,6 +18,7 @@ class BottomBarScreen extends StatefulWidget {
 
 class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Widget> pages = <Widget>[
+    Feeds(),
     Search(),
     MyBookingsScreen(),
     // CalenderScreen(),
@@ -44,10 +46,10 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           selectedItemColor: Colors.black,
           currentIndex: _page.selectedPage,
           items: const [
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.room_service),
-            //   label: 'Services',
-            // ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.rss_feed),
+              label: 'Feed',
+            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Search',

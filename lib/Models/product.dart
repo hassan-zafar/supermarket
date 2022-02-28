@@ -7,10 +7,10 @@ class Product with ChangeNotifier {
   final String? Brand;
 
   final String? price;
-  final String? imageUrl;
+  final String? imageURL;
   final bool? isIndividual;
   final bool? isFavorite;
-  final String? counter_selected;
+  final int? counter_selected;
   final double? price_continete;
   final double? price_auchan;
   final double? price_pingodoce;
@@ -24,7 +24,7 @@ class Product with ChangeNotifier {
     this.Description,
     this.Brand,
     this.price,
-    this.imageUrl,
+    this.imageURL,
     this.isIndividual,
     this.isFavorite,
     this.counter_selected,
@@ -37,11 +37,11 @@ class Product with ChangeNotifier {
   });
   factory Product.fromDocument(doc) {
     return Product(
-      productId: doc.data()["productId"],
+      // productId: doc.data()["productId"],
       Name: doc.data()["Name"],
       Description: doc.data()["Description"],
       price: doc.data()["price"],
-      imageUrl: doc.data()["productImage"],
+      imageURL: doc.data()["imageURL"],
       Brand: doc.data()["Brand"],
       isIndividual: doc.data()["isIndividual"],
       isFavorite: doc.data()["isFavorite"],
@@ -61,7 +61,7 @@ class Product with ChangeNotifier {
       'description': Description,
       'Brand': Brand,
       'price': price,
-      'imageUrl': imageUrl,
+      'imageURL': imageURL,
       'isIndividual': isIndividual,
       'isFavorite': isFavorite,
       'price_intermarche': price_intermarche,

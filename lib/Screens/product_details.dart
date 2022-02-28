@@ -42,7 +42,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             height: MediaQuery.of(context).size.height * 0.45,
             width: double.infinity,
             child: Image.network(
-              prodAttr.imageUrl!,
+              prodAttr.imageURL!,
             ),
           ),
           SingleChildScrollView(
@@ -165,7 +165,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                       // _details(themeState.darkTheme, 'Quantity: ',
                       //     '${prodAttr.quantity}'),
 
-                 
                       SizedBox(
                         height: 15,
                       ),
@@ -326,7 +325,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                       productId,
                                       prodAttr.price!,
                                       prodAttr.Name!,
-                                      prodAttr.imageUrl!);
+                                      prodAttr.imageURL!);
                                 },
                       child: Text(
                         cartProvider.getCartItems.containsKey(productId)
@@ -385,7 +384,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             productId,
                             prodAttr.price!,
                             prodAttr.Name!,
-                            prodAttr.imageUrl!);
+                            prodAttr.imageURL!);
                       },
                       child: Center(
                         child: Icon(

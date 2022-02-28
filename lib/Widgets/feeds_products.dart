@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +6,6 @@ import '../Models/product.dart';
 import '../Providers/provider/cart_provider.dart';
 import '../Screens/product_details.dart';
 import 'feeds.dialog.dart';
-
 
 class FeedProducts extends StatefulWidget {
   @override
@@ -46,7 +44,7 @@ class _FeedProductsState extends State<FeedProducts> {
                               // 200,
                               MediaQuery.of(context).size.height * 0.28,
                           child: Image.network(
-                            productsAttributes.imageUrl!,
+                            productsAttributes.imageURL!,
                             fit: BoxFit.contain,
                           ),
                         ),

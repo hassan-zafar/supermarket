@@ -17,12 +17,13 @@ class Search extends StatefulWidget with ChangeNotifier {
 class _SearchState extends State<Search> {
   TextEditingController? _searchTextController;
   List<Product> allProducts = [];
-
+  List<Product> _searchList = [];
   final FocusNode _node = FocusNode();
   void initState() {
     super.initState();
     _searchTextController = TextEditingController();
     getProducts();
+
     _searchTextController!.addListener(() {
       setState(() {});
     });
@@ -31,7 +32,9 @@ class _SearchState extends State<Search> {
   getProducts() async {
     QuerySnapshot snapshot =
         await FirebaseFirestore.instance.collection('products').get();
-    allProducts.add(Product.fromDocument(snapshot));
+    snapshot.docs.forEach((element) {
+      allProducts.add(Product.fromDocument(element));
+    });
   }
 
   @override
@@ -41,7 +44,6 @@ class _SearchState extends State<Search> {
     _searchTextController!.dispose();
   }
 
-  List<Product> _searchList = [];
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<Products>(context);
@@ -119,6 +121,15 @@ class _SearchState extends State<Search> {
                     _searchTextController!.text.toLowerCase();
                     setState(() {
                       _searchList = productsData.searchQuery(value);
+
+                      // _searchList = allProducts
+                      //     .where((element) => element.Name!
+                      //         .toLowerCase()
+                      //         .contains(
+                      //             _searchTextController!.text.toLowerCase()))
+                      //     .toList();
+                      print(
+                          "allProducts:$allProducts _searchList$_searchList ");
                     });
                   },
                 ),
