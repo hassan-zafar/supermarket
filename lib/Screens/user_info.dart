@@ -12,6 +12,7 @@ import '../Providers/provider/dark_theme_provider.dart';
 import '../Widgets/loadingWidget.dart';
 import '../consts/collections.dart';
 import '../consts/consants.dart';
+import 'adminScreens/commentsNChatAdmin.dart';
 
 class UserInfoScreen extends StatefulWidget {
   @override
@@ -210,7 +211,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             userTitle(title: 'Content'),
-
                             Material(
                               color: Colors.transparent,
                               child: InkWell(
@@ -224,9 +224,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                 ),
                               ),
                             ),
-
                             userTitle(title: 'User preferences'),
-
                             ListTile(
                               onTap: () => Share.share(
                                   'check out this app https://play.google.com/store/apps/details?id=com.whatsapp',
@@ -238,7 +236,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                 color: Colors.yellow,
                               ),
                             ),
-                            
                             ListTileSwitch(
                               value: themeChange.darkTheme,
                               leading: Icon(FontAwesomeIcons.moon),
@@ -253,7 +250,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                               title: Text('Dark theme'),
                             ),
                             userTitle(title: "Account"),
-                          
                             currentUser!.isAdmin!
                                 ? Container()
                                 : Material(
