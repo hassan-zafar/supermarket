@@ -250,29 +250,30 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                               title: Text('Dark theme'),
                             ),
                             userTitle(title: "Account"),
-                            currentUser!.isAdmin!
-                                ? Container()
-                                : Material(
-                                    color: Colors.transparent,
-                                    child: InkWell(
-                                      onTap: () => Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) =>
-                                            CommentsNChatAdmin(
-                                          chatId: currentUser!.id,
-                                          chatNotificationToken: currentUser!
-                                              .androidNotificationToken,
-                                        ),
-                                      )),
-                                      splashColor: Colors.red,
-                                      child: ListTile(
-                                        title: Text('Report a Problem'),
-                                        trailing:
-                                            Icon(Icons.chevron_right_rounded),
-                                        leading: Icon(Icons.flag),
-                                      ),
-                                    ),
-                                  ),
+                            // currentUser!.isAdmin!
+                            //     ? Container()
+                            //     : Material(
+                            //         color: Colors.transparent,
+                            //         child: InkWell(
+                            //           onTap: () => Navigator.of(context)
+                            //               .push(MaterialPageRoute(
+                            //             builder: (context) =>
+                            //                 CommentsNChatAdmin(
+                            //               chatId: currentUser!.id,
+                            //               chatNotificationToken: currentUser!
+                            //                   .androidNotificationToken,
+                            //             ),
+                            //           )),
+                            //           splashColor: Colors.red,
+                            //           child: ListTile(
+                            //             title: Text('Report a Problem'),
+                            //             trailing:
+                            //                 Icon(Icons.chevron_right_rounded),
+                            //             leading: Icon(Icons.flag),
+                            //           ),
+                            //         ),
+                            //       ),
+
                             Material(
                               color: Colors.transparent,
                               child: InkWell(

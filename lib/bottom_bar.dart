@@ -8,6 +8,7 @@ import 'Screens/adminScreens/chatLists.dart';
 import 'Screens/cart/cart.dart';
 import 'Screens/search.dart';
 import 'Screens/user_info.dart';
+
 class BottomBarScreen extends StatefulWidget {
   static const routeName = '/BottomBarScreen';
   @override
@@ -60,7 +61,8 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
             //   icon: Icon(Icons.calendar_today),
             //   label: 'All Bookings',
             // ),
-            // // BottomNavigationBarItem(icon: Icon(MyAppIcons.user), label: 'User'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person), label: 'User Info'),
 
             // admin screen
             BottomNavigationBarItem(
