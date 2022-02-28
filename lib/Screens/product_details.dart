@@ -105,7 +105,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: Text(
-                                prodAttr.title!,
+                                prodAttr.Name!,
                                 maxLines: 2,
                                 style: TextStyle(
                                   // color: Theme.of(context).textSelectionColor,
@@ -143,7 +143,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          prodAttr.description!,
+                          prodAttr.Description!,
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 21.0,
@@ -165,8 +165,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       // _details(themeState.darkTheme, 'Quantity: ',
                       //     '${prodAttr.quantity}'),
 
-                      _details(themeState.darkTheme, 'Popularity: ',
-                          prodAttr.isPopular! ? 'Popular' : 'Barely known'),
+                 
                       SizedBox(
                         height: 15,
                       ),
@@ -326,7 +325,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   cartProvider.addProductToCart(
                                       productId,
                                       prodAttr.price!,
-                                      prodAttr.title!,
+                                      prodAttr.Name!,
                                       prodAttr.imageUrl!);
                                 },
                       child: Text(
@@ -385,7 +384,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         favsProvider.addAndRemoveFromFav(
                             productId,
                             prodAttr.price!,
-                            prodAttr.title!,
+                            prodAttr.Name!,
                             prodAttr.imageUrl!);
                       },
                       child: Center(

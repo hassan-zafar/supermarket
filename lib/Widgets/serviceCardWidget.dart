@@ -60,7 +60,7 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        productsAttributes.title!,
+                        productsAttributes.Name!,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(

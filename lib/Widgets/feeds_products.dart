@@ -80,7 +80,7 @@ class _FeedProductsState extends State<FeedProducts> {
                       height: 4,
                     ),
                     Text(
-                      productsAttributes.description!,
+                      productsAttributes.Description!,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       style: TextStyle(

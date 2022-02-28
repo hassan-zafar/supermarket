@@ -39,9 +39,7 @@ class _FeedsState extends State<Feeds> {
     );
 
     List<Product> productsList = productsProvider.products;
-    if (popular == 'popular') {
-      productsList = productsProvider.popularProducts;
-    }
+ 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

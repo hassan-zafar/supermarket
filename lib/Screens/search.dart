@@ -1,4 +1,5 @@
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,6 @@ import '../Widgets/feeds_products.dart';
 import '../Widgets/searchby_header.dart';
 import '../consts/colors.dart';
 
-
 class Search extends StatefulWidget with ChangeNotifier {
   @override
   _SearchState createState() => _SearchState();
@@ -16,13 +16,22 @@ class Search extends StatefulWidget with ChangeNotifier {
 
 class _SearchState extends State<Search> {
   TextEditingController? _searchTextController;
+  List<Product> allProducts = [];
+
   final FocusNode _node = FocusNode();
   void initState() {
     super.initState();
     _searchTextController = TextEditingController();
+    getProducts();
     _searchTextController!.addListener(() {
       setState(() {});
     });
+  }
+
+  getProducts() async {
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('products').get();
+    allProducts.add(Product.fromDocument(snapshot));
   }
 
   @override

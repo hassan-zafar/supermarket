@@ -20,34 +20,21 @@ class Products with ChangeNotifier {
         _products.insert(0, Product.fromDocument(element));
         Product(
             productId: element.get('productId'),
-            title: element.get('productTitle'),
-            description: element.get('productDescription'),
+            Name: element.get('productTitle'),
+            Description: element.get('productDescription'),
             price: element.get('price'),
             imageUrl: element.get('productImage'),
-            groupMembers: element.get('groupMembers'),
             isFavorite: element.get('isFavorite'),
             isIndividual: element.get('isIndividual'),
-            pallets: element.get('pallets'),
-            isPopular: true);
+            );
       });
     });
   }
 
-  List<Product> get popularProducts {
-    return _products.where((element) => element.isPopular!).toList();
-  }
+
 
   Product findById(String productId) {
     return _products.firstWhere((element) => element.productId == productId);
-  }
-
-  List<Product> findByCategory(String categoryName) {
-    List<Product> _categoryList = _products
-        .where((element) => element.productCategoryName!
-            .toLowerCase()
-            .contains(categoryName.toLowerCase()))
-        .toList();
-    return _categoryList;
   }
 
   // List<Product> findByBrand(String brandName) {
@@ -61,7 +48,7 @@ class Products with ChangeNotifier {
   List<Product> searchQuery(String searchText) {
     List<Product> _searchList = _products
         .where((element) =>
-            element.title!.toLowerCase().contains(searchText.toLowerCase()))
+            element.Name!.toLowerCase().contains(searchText.toLowerCase()))
         .toList();
     return _searchList;
   }
