@@ -57,7 +57,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
             BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart_rounded),
-              label: 'BOOKINGS',
+              label: 'Cart',
             ),
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.calendar_today),

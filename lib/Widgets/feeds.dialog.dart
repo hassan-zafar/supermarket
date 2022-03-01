@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -70,7 +69,7 @@ class FeedDialog extends StatelessWidget {
                         () => {
                               Navigator.pushNamed(
                                       context, ProductDetails.routeName,
-                                      arguments: prodAttr.productId)
+                                      arguments: prodAttr.Name)
                                   .then((value) => Navigator.canPop(context)
                                       ? Navigator.pop(context)
                                       : null),

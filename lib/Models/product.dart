@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class Product with ChangeNotifier {
-  final String? productId;
+  // final String? productId;
   final String? Name;
   final String? Description;
   final String? Brand;
@@ -19,7 +19,7 @@ class Product with ChangeNotifier {
   final double? price_spar;
 
   Product({
-    this.productId,
+    // this.productId,
     this.Name,
     this.Description,
     this.Brand,
@@ -56,7 +56,7 @@ class Product with ChangeNotifier {
   }
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'productId': productId,
+      // 'productId': productId,
       'Name': Name,
       'description': Description,
       'Brand': Brand,

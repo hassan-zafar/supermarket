@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:supermarket/Screens/product_details.dart';
 import 'package:supermarket/Utils/utilities.dart';
 import 'package:supermarket/consts/consants.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +17,12 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
   @override
   Widget build(BuildContext context) {
     final productsAttributes = Provider.of<Product>(context);
+
     print(productsAttributes);
     return GestureDetector(
       onTap: () {
-        // Navigator.pushNamed(context, ServiceDetailsScreen.routeName,
-        //     arguments: productsAttributes.productId);
+        Navigator.pushNamed(context, ProductDetails.routeName,
+            arguments: productsAttributes.Name);
       },
       child: Container(
         height: 120,
@@ -69,7 +71,7 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
                         ),
                       ),
                       Text(
-                        '₦${productsAttributes.price}',
+                        '\$ ${productsAttributes.price}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(

@@ -27,18 +27,26 @@ class _ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
     final productsData = Provider.of<Products>(context, listen: false);
-    final productId = ModalRoute.of(context)!.settings.arguments as String;
+    final productName = ModalRoute.of(context)!.settings.arguments as String;
     final cartProvider = Provider.of<CartProvider>(context);
 
     final favsProvider = Provider.of<FavsProvider>(context);
-    print('productId $productId');
-    final prodAttr = productsData.findById(productId);
+    print('productName $productName');
+    final prodAttr = productsData.findById(productName);
     final productsList = productsData.products;
+    List<double> allPrices = [];
+    allPrices.add(prodAttr.price_auchan!);
+    allPrices.add(prodAttr.price_continete!);
+    allPrices.add(prodAttr.price_intermarche!);
+    allPrices.add(prodAttr.price_mini!);
+    allPrices.add(prodAttr.price_pingodoce!);
+    allPrices.add(prodAttr.price_spar!);
+    allPrices.sort();
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
-            foregroundDecoration: BoxDecoration(color: Colors.black12),
+            foregroundDecoration: const BoxDecoration(color: Colors.black12),
             height: MediaQuery.of(context).size.height * 0.45,
             width: double.infinity,
             child: Image.network(
@@ -62,9 +70,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                           splashColor: Colors.purple.shade200,
                           onTap: () {},
                           borderRadius: BorderRadius.circular(30),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: const Icon(
                               Icons.save,
                               size: 23,
                               color: Colors.white,
@@ -78,8 +86,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                           splashColor: Colors.purple.shade200,
                           onTap: () {},
                           borderRadius: BorderRadius.circular(30),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Icon(
                               Icons.share,
                               size: 23,
@@ -107,18 +115,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                               child: Text(
                                 prodAttr.Name!,
                                 maxLines: 2,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   // color: Theme.of(context).textSelectionColor,
                                   fontSize: 28.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
-                              'US \$ ${prodAttr.price}',
+                              'US \$ ${allPrices.first}-${allPrices.last}',
                               style: TextStyle(
                                   color: themeState.darkTheme
                                       ? Theme.of(context).disabledColor
@@ -165,10 +173,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                       // _details(themeState.darkTheme, 'Quantity: ',
                       //     '${prodAttr.quantity}'),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
-                      Divider(
+                      const Divider(
                         thickness: 1,
                         color: Colors.grey,
                         height: 1,
@@ -205,10 +213,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 70,
                             ),
-                            Divider(
+                            const Divider(
                               thickness: 1,
                               color: Colors.grey,
                               height: 1,
@@ -222,15 +230,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                 // const SizedBox(height: 15.0),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   color: Theme.of(context).scaffoldBackgroundColor,
-                  child: Text(
+                  child: const Text(
                     'Suggested products:',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 30),
+                  margin: const EdgeInsets.only(bottom: 30),
                   width: double.infinity,
                   height: 400,
                   child: ListView.builder(
@@ -254,10 +262,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 centerTitle: true,
-                title: Text(
+                title: const Text(
                   "DETAIL",
-                  style:
-                      TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
+                  style: const TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.normal),
                 ),
                 actions: <Widget>[
                   Consumer<FavsProvider>(
@@ -268,7 +276,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       position: BadgePosition.topEnd(top: 5, end: 7),
                       badgeContent: Text(
                         favs.getFavsItems.length.toString(),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                       child: IconButton(
                         icon: Icon(
@@ -290,7 +298,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       position: BadgePosition.topEnd(top: 5, end: 7),
                       badgeContent: Text(
                         cart.getCartItems.length.toString(),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                       child: IconButton(
                         icon: Icon(
@@ -315,23 +323,25 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 50,
                     child: RaisedButton(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      shape: RoundedRectangleBorder(side: BorderSide.none),
+                      shape:
+                          const RoundedRectangleBorder(side: BorderSide.none),
                       color: Colors.redAccent.shade400,
                       onPressed:
-                          cartProvider.getCartItems.containsKey(productId)
+                          cartProvider.getCartItems.containsKey(productName)
                               ? () {}
                               : () {
                                   cartProvider.addProductToCart(
-                                      productId,
+                                      productName,
                                       prodAttr.price!,
                                       prodAttr.Name!,
                                       prodAttr.imageURL!);
                                 },
                       child: Text(
-                        cartProvider.getCartItems.containsKey(productId)
+                        cartProvider.getCartItems.containsKey(productName)
                             ? 'In cart'
                             : 'Add to Cart'.toUpperCase(),
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
                   ),
@@ -342,7 +352,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 50,
                     child: RaisedButton(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      shape: RoundedRectangleBorder(side: BorderSide.none),
+                      shape:
+                          const RoundedRectangleBorder(side: BorderSide.none),
                       color: Theme.of(context).backgroundColor,
                       onPressed: () {
                         // Navigator.of(context)
@@ -357,7 +368,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 fontSize: 14,
                                 color: Theme.of(context).textSelectionColor),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Icon(
@@ -381,18 +392,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                       splashColor: ColorsConsts.favColor,
                       onTap: () {
                         favsProvider.addAndRemoveFromFav(
-                            productId,
+                            productName,
                             prodAttr.price!,
                             prodAttr.Name!,
                             prodAttr.imageURL!);
                       },
                       child: Center(
                         child: Icon(
-                          favsProvider.getFavsItems.containsKey(productId)
+                          favsProvider.getFavsItems.containsKey(productName)
                               ? Icons.favorite
                               : Icons.favorite_outline,
                           color:
-                              favsProvider.getFavsItems.containsKey(productId)
+                              favsProvider.getFavsItems.containsKey(productName)
                                   ? Colors.red
                                   : ColorsConsts.white,
                         ),

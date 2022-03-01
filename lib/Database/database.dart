@@ -14,12 +14,6 @@ class DatabaseMethods {
   //   return FirebaseFirestore.instance.collection(productCollection).snapshots();
   // }
 
-  Future fetchCalenderDataFromFirebase() async {
-    final QuerySnapshot calenderMeetings = await calenderRef.get();
-
-    return calenderMeetings;
-  }
-
   Future<bool> loginAnonymosly() async {
     try {
       final FirebaseAuth _auth = FirebaseAuth.instance;

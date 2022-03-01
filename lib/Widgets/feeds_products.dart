@@ -18,11 +18,19 @@ class _FeedProductsState extends State<FeedProducts> {
     final cartProvider = Provider.of<CartProvider>(context);
 
     final productsAttributes = Provider.of<Product>(context);
+    List<double> allPrices = [];
+    allPrices.add(productsAttributes.price_auchan!);
+    allPrices.add(productsAttributes.price_continete!);
+    allPrices.add(productsAttributes.price_intermarche!);
+    allPrices.add(productsAttributes.price_mini!);
+    allPrices.add(productsAttributes.price_pingodoce!);
+    allPrices.add(productsAttributes.price_spar!);
+    allPrices.sort();
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () => Navigator.pushNamed(context, ProductDetails.routeName,
-            arguments: productsAttributes.productId),
+            arguments: productsAttributes.Name),
         child: Container(
           width: 250,
           height: 250,
@@ -89,7 +97,7 @@ class _FeedProductsState extends State<FeedProducts> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Text(
-                        '\$ ${productsAttributes.price}',
+                        '\$ ${allPrices.first}-${allPrices.last}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: TextStyle(
@@ -115,7 +123,7 @@ class _FeedProductsState extends State<FeedProducts> {
                                 showDialog(
                                   context: context,
                                   builder: (BuildContext context) => FeedDialog(
-                                    productId: productsAttributes.productId!,
+                                    productId: productsAttributes.Name!,
                                   ),
                                 );
                               },

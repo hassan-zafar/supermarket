@@ -37,8 +37,8 @@ class Products with ChangeNotifier {
     // });
   }
 
-  Product findById(String productId) {
-    return _products.firstWhere((element) => element.productId == productId);
+  Product findById(String name) {
+    return _products.firstWhere((element) => element.Name == name);
   }
 
   // List<Product> findByBrand(String brandName) {
