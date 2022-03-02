@@ -9,9 +9,9 @@ import '../../consts/colors.dart';
 import '../product_details.dart';
 
 class CartFull extends StatefulWidget {
-  final String? productId;
+  final String? productName;
 
-  const CartFull({this.productId});
+  const CartFull({this.productName});
 
   // final String id;
   // final String productId;
@@ -41,7 +41,7 @@ class _CartFullState extends State<CartFull> {
     // double subTotal = cartAttr.price! * cartAttr.quantity!;
     return InkWell(
       onTap: () => Navigator.pushNamed(context, ProductDetails.routeName,
-          arguments: widget.productId),
+          arguments: widget.productName),
       child: Container(
         height: 135,
         margin: const EdgeInsets.all(10),
@@ -90,7 +90,7 @@ class _CartFullState extends State<CartFull> {
                                   'Remove item!',
                                   'Product will be removed from the cart!',
                                   () => cartProvider
-                                      .removeItem(widget.productId!),
+                                      .removeItem(widget.productName!),
                                   context);
                               //
                             },
@@ -159,7 +159,7 @@ class _CartFullState extends State<CartFull> {
                                 ? null
                                 : () {
                                     cartProvider.reduceItemByOne(
-                                      widget.productId!,
+                                      widget.productName!,
                                     );
                                   },
                             child: Container(
@@ -203,7 +203,7 @@ class _CartFullState extends State<CartFull> {
                             // splashColor: ,
                             onTap: () {
                               cartProvider.addProductToCart(
-                                  widget.productId!,
+                                  widget.productName!,
                                   cartAttr.price!,
                                   cartAttr.title!,
                                   cartAttr.imageUrl!);

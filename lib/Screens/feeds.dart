@@ -84,7 +84,7 @@ class _FeedsState extends State<Feeds> {
                     color: ColorsConsts.cartColor,
                   ),
                   onPressed: () {
-                    // Navigator.of(context).pushNamed(CartScreen.routeName);
+                    Navigator.of(context).pushNamed(CartScreen.routeName);
                   },
                 ),
               ),

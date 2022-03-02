@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CartAttr with ChangeNotifier {
   final String? id;
-  final String? productId;
+  final String? productName;
   final String? title;
   final int? quantity;
   final String? price;
@@ -10,7 +10,7 @@ class CartAttr with ChangeNotifier {
 
   CartAttr(
       {this.id,
-      @required this.productId,
+      @required this.productName,
       this.title,
       this.quantity,
       this.price,

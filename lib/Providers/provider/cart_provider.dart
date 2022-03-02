@@ -17,24 +17,24 @@ class CartProvider with ChangeNotifier {
   }
 
   void addProductToCart(
-      String productId, String price, String title, String imageUrl) {
-    if (_cartItems.containsKey(productId)) {
+      String productName, String price, String title, String imageUrl) {
+    if (_cartItems.containsKey(productName)) {
       // removeItem(productId);
       _cartItems.update(
-          productId,
+          productName,
           (exitingCartItem) => CartAttr(
-              id: exitingCartItem.id,
-              productId: exitingCartItem.productId,
+              id: exitingCartItem.productName,
+              productName: exitingCartItem.productName,
               title: exitingCartItem.title,
               price: exitingCartItem.price,
               quantity: exitingCartItem.quantity! + 1,
               imageUrl: exitingCartItem.imageUrl));
     } else {
       _cartItems.putIfAbsent(
-          productId,
+          productName,
           () => CartAttr(
               id: DateTime.now().toString(),
-              productId: productId,
+              productName: productName,
               title: title,
               price: price,
               quantity: 1,
@@ -43,20 +43,20 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeItem(String productId) {
-    _cartItems.remove(productId);
+  void removeItem(String productName) {
+    _cartItems.remove(productName);
     notifyListeners();
   }
 
   void reduceItemByOne(
-    String productId,
+    String productName,
   ) {
-    if (_cartItems.containsKey(productId)) {
+    if (_cartItems.containsKey(productName)) {
       _cartItems.update(
-          productId,
+          productName,
           (exitingCartItem) => CartAttr(
               id: exitingCartItem.id,
-              productId: exitingCartItem.productId,
+              productName: exitingCartItem.productName,
               title: exitingCartItem.title,
               price: exitingCartItem.price,
               quantity: exitingCartItem.quantity! - 1,

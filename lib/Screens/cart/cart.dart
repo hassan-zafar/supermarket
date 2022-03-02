@@ -9,15 +9,15 @@ import '../../Providers/provider/cart_provider.dart';
 import 'cart_empty.dart';
 import 'cart_full.dart';
 
-class MyBookingsScreen extends StatefulWidget {
+class CartScreen extends StatefulWidget {
   //To be known 1) the amount must be an integer 2) the amount must not be double 3) the minimum amount should be less than 0.5 $
   static const routeName = '/CartScreen';
 
   @override
-  _MyBookingsScreenState createState() => _MyBookingsScreenState();
+  _CartScreenState createState() => _CartScreenState();
 }
 
-class _MyBookingsScreenState extends State<MyBookingsScreen> {
+class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -87,7 +87,7 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
                     return ChangeNotifierProvider.value(
                       value: cartProvider.getCartItems.values.toList()[index],
                       child: CartFull(
-                        productId:
+                        productName:
                             cartProvider.getCartItems.keys.toList()[index],
                         // id:  cartProvider.getCartItems.values.toList()[index].id,
                         // productId: cartProvider.getCartItems.keys.toList()[index],

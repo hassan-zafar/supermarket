@@ -162,7 +162,7 @@ class _LandingPageState extends State<LandingPage>
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: const Text(
-                'Welcome to V⚡lt Arena Online Store',
+                'Welcome to Super Market',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     fontSize: 26,

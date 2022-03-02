@@ -20,7 +20,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Widget> pages = <Widget>[
     Feeds(),
     Search(),
-    MyBookingsScreen(),
+    CartScreen(),
     // CalenderScreen(),
     UserInfoScreen(),
     UserNSearch(),

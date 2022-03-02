@@ -35,13 +35,30 @@ class _ProductDetailsState extends State<ProductDetails> {
     final prodAttr = productsData.findById(productName);
     final productsList = productsData.products;
     List<double> allPrices = [];
-    allPrices.add(prodAttr.price_auchan!);
+    allPrices.add(
+      prodAttr.price_auchan!,
+    );
     allPrices.add(prodAttr.price_continete!);
     allPrices.add(prodAttr.price_intermarche!);
     allPrices.add(prodAttr.price_mini!);
     allPrices.add(prodAttr.price_pingodoce!);
     allPrices.add(prodAttr.price_spar!);
+
     allPrices.sort();
+    Map<double, String> allPricesMap = {
+      prodAttr.price_auchan!: 'Auchan price',
+      prodAttr.price_continete!: 'Continete price',
+      prodAttr.price_intermarche!: 'Intermarche price',
+      prodAttr.price_mini!: 'Mini price',
+      prodAttr.price_pingodoce!: 'Pingodoce price',
+      prodAttr.price_spar!: 'Spar price',
+    };
+    List<String> allPricesString = [];
+    allPrices.forEach((element) {
+      print('(allPricesMap[element]! :${allPricesMap[element]!}');
+      allPricesString.add(allPricesMap[element]!);
+      allPricesMap.remove(element);
+    });
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -147,11 +164,24 @@ class _ProductDetailsState extends State<ProductDetails> {
                           height: 1,
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          'Brand: ${prodAttr.Brand!}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 21.0,
+                            color: themeState.darkTheme
+                                ? Theme.of(context).disabledColor
+                                : ColorsConsts.black,
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 5.0),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          prodAttr.Description!,
+                          prodAttr.Brand!,
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 21.0,
@@ -172,14 +202,54 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       // _details(themeState.darkTheme, 'Quantity: ',
                       //     '${prodAttr.quantity}'),
-
+                      Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                'All available prices',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 21.0,
+                                  color: themeState.darkTheme
+                                      ? Theme.of(context).disabledColor
+                                      : ColorsConsts.black,
+                                ),
+                              ),
+                              Text(
+                                'From low to high',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 21.0,
+                                  color: themeState.darkTheme
+                                      ? Theme.of(context).disabledColor
+                                      : ColorsConsts.subTitle,
+                                ),
+                              ),
+                              Container(
+                                height: 400,
+                                child: ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount: allPrices.length,
+                                  itemBuilder: (context, index) => ListTile(
+                                    title: Text(allPricesString[index]),
+                                    trailing: Text(allPrices[index].toString()),
+                                  ),
+                                ),
+                              )
+                            ],
+                          )),
+                      const SizedBox(height: 5.0),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Divider(
+                          thickness: 1,
+                          color: Colors.grey,
+                          height: 1,
+                        ),
+                      ),
                       const SizedBox(
                         height: 15,
-                      ),
-                      const Divider(
-                        thickness: 1,
-                        color: Colors.grey,
-                        height: 1,
                       ),
 
                       // const SizedBox(height: 15.0),
@@ -306,8 +376,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           color: ColorsConsts.cartColor,
                         ),
                         onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(MyBookingsScreen.routeName);
+                          Navigator.of(context).pushNamed(CartScreen.routeName);
                         },
                       ),
                     ),
