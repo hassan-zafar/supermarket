@@ -17,7 +17,14 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
   @override
   Widget build(BuildContext context) {
     final productsAttributes = Provider.of<Product>(context);
-
+    List<double> allPrices = [];
+    allPrices.add(productsAttributes.price_auchan!);
+    allPrices.add(productsAttributes.price_continete!);
+    allPrices.add(productsAttributes.price_intermarche!);
+    allPrices.add(productsAttributes.price_mini!);
+    allPrices.add(productsAttributes.price_pingodoce!);
+    allPrices.add(productsAttributes.price_spar!);
+    allPrices.sort();
     print(productsAttributes);
     return GestureDetector(
       onTap: () {
@@ -71,7 +78,7 @@ class _ServiceCardWidgetState extends State<ServiceCardWidget> {
                         ),
                       ),
                       Text(
-                        '\$ ${productsAttributes.price}',
+                        '\$ ${allPrices.first}-${allPrices.last}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(

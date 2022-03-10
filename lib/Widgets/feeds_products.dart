@@ -32,8 +32,8 @@ class _FeedProductsState extends State<FeedProducts> {
         onTap: () => Navigator.pushNamed(context, ProductDetails.routeName,
             arguments: productsAttributes.Name),
         child: Container(
+          height: 150,
           width: 250,
-          height: 250,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
               color: Theme.of(context).backgroundColor),
@@ -53,7 +53,7 @@ class _FeedProductsState extends State<FeedProducts> {
                               MediaQuery.of(context).size.height * 0.28,
                           child: Image.network(
                             productsAttributes.imageURL!,
-                            fit: BoxFit.contain,
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
@@ -68,7 +68,7 @@ class _FeedProductsState extends State<FeedProducts> {
                           badgeColor: Colors.pink,
                           borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(8)),
-                          badgeContent: Text('New',
+                          badgeContent: Text(productsAttributes.Brand!,
                               style: TextStyle(color: Colors.white)),
                         ),
                       ),

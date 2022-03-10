@@ -20,11 +20,11 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Widget> pages = <Widget>[
     Feeds(),
     Search(),
-    CartScreen(),
+    // CartScreen(),
     // CalenderScreen(),
     UserInfoScreen(),
-    UserNSearch(),
-    ChatLists(),
+    // UserNSearch(),
+    // ChatLists(),
     // UploadProductForm()
   ];
 
@@ -48,17 +48,17 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.rss_feed),
-              label: 'Feed',
+              label: 'Products',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Search',
             ),
 
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_rounded),
-              label: 'Cart',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.shopping_cart_rounded),
+            //   label: 'Cart',
+            // ),
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.calendar_today),
             //   label: 'All Bookings',
@@ -67,16 +67,16 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                 icon: Icon(Icons.person), label: 'User Info'),
 
             // admin screen
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people),
-              label: 'All Users',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.people),
+            //   label: 'All Users',
+            // ),
 
             // admin screen
-            BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble),
-              label: 'Admin Chats',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.chat_bubble),
+            //   label: 'Admin Chats',
+            // ),
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.upload),
             //   label: 'Upload Product',

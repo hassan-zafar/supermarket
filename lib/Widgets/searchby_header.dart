@@ -21,7 +21,7 @@ class SearchByHeader extends SliverPersistentHeaderDelegate {
 
   SearchByHeader({
     this.flexibleSpace = 250,
-    this.backGroundHeight = 200,
+    this.backGroundHeight = 100,
     @required this.stackPaddingTop,
     this.titlePaddingTop = 35,
     @required this.title,
@@ -55,72 +55,73 @@ class SearchByHeader extends SliverPersistentHeaderDelegate {
                   tileMode: TileMode.clamp),
             ),
           ),
+          // Positioned(
+          //   top: 30,
+          //   right: 10,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.end,
+          //     children: [
+          //       Consumer<FavsProvider>(
+          //         builder: (_, favs, ch) => Badge(
+          //           badgeColor: ColorsConsts.favBadgeColor,
+          //           position: BadgePosition.topEnd(top: 5, end: 7),
+          //           badgeContent: Text(
+          //             favs.getFavsItems.length.toString(),
+          //             style: TextStyle(color: ColorsConsts.white),
+          //           ),
+          //           child: IconButton(
+          //             icon: Icon(Icons.favorite, color: ColorsConsts.favColor),
+          //             onPressed: () {
+          //               Navigator.of(context)
+          //                   .pushNamed(WishlistScreen.routeName);
+          //             },
+          //           ),
+          //         ),
+          //       ),
+          //       Consumer<CartProvider>(
+          //         builder: (_, cart, ch) => Badge(
+          //           badgeColor: ColorsConsts.cartBadgeColor,
+          //           position: BadgePosition.topEnd(top: 5, end: 7),
+          //           badgeContent: Text(
+          //             cart.getCartItems.length.toString(),
+          //             style: TextStyle(color: ColorsConsts.white),
+          //           ),
+          //           child: IconButton(
+          //             icon: Icon(
+          //               Icons.shopping_cart,
+          //               color: ColorsConsts.cartColor,
+          //             ),
+          //             onPressed: () {},
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // Positioned(
+          //   top: 32,
+          //   left: 10,
+          //   child: Material(
+          //     borderRadius: BorderRadius.circular(10.0),
+          //     color: Colors.grey.shade300,
+          //     child: Container(
+          //       height: 40,
+          //       width: 40,
+          //       clipBehavior: Clip.antiAlias,
+          //       decoration: BoxDecoration(
+          //           borderRadius: BorderRadius.circular(10.0),
+          //           image: DecorationImage(
+          //             image: NetworkImage(
+          //               'https://cdn1.vectorstock.com/i/thumb-large/62/60/default-avatar-photo-placeholder-profile-image-vector-21666260.jpg',
+          //             ),
+          //             fit: BoxFit.cover,
+          //           )),
+          //     ),
+          //   ),
+          // ),
+
           Positioned(
-            top: 30,
-            right: 10,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Consumer<FavsProvider>(
-                  builder: (_, favs, ch) => Badge(
-                    badgeColor: ColorsConsts.favBadgeColor,
-                    position: BadgePosition.topEnd(top: 5, end: 7),
-                    badgeContent: Text(
-                      favs.getFavsItems.length.toString(),
-                      style: TextStyle(color: ColorsConsts.white),
-                    ),
-                    child: IconButton(
-                      icon: Icon(Icons.favorite, color: ColorsConsts.favColor),
-                      onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed(WishlistScreen.routeName);
-                      },
-                    ),
-                  ),
-                ),
-                Consumer<CartProvider>(
-                  builder: (_, cart, ch) => Badge(
-                    badgeColor: ColorsConsts.cartBadgeColor,
-                    position: BadgePosition.topEnd(top: 5, end: 7),
-                    badgeContent: Text(
-                      cart.getCartItems.length.toString(),
-                      style: TextStyle(color: ColorsConsts.white),
-                    ),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.shopping_cart,
-                        color: ColorsConsts.cartColor,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            top: 32,
-            left: 10,
-            child: Material(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.grey.shade300,
-              child: Container(
-                height: 40,
-                width: 40,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://cdn1.vectorstock.com/i/thumb-large/62/60/default-avatar-photo-placeholder-profile-image-vector-21666260.jpg',
-                      ),
-                      fit: BoxFit.cover,
-                    )),
-              ),
-            ),
-          ),
-          Positioned(
-            left: MediaQuery.of(context).size.width * 0.35,
+            left: MediaQuery.of(context).size.width * 0.32,
             top: titlePaddingTop! * calculate + 27,
             bottom: 0.0,
             child: Container(

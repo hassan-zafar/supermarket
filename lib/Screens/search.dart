@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:supermarket/Widgets/serviceCardWidget.dart';
 
 import '../Models/product.dart';
 import '../Providers/provider/products.dart';
@@ -55,8 +56,8 @@ class _SearchState extends State<Search> {
             floating: true,
             pinned: true,
             delegate: SearchByHeader(
-              stackPaddingTop: 175,
-              titlePaddingTop: 50,
+              stackPaddingTop: 100,
+              titlePaddingTop: 20,
               title: RichText(
                 text: TextSpan(
                   children: [
@@ -160,8 +161,8 @@ class _SearchState extends State<Search> {
                 : GridView.count(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    crossAxisCount: 2,
-                    childAspectRatio: 240 / 420,
+                    crossAxisCount: 1,
+                    childAspectRatio: 16 / 9,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
                     children: List.generate(
@@ -172,7 +173,7 @@ class _SearchState extends State<Search> {
                         value: _searchTextController!.text.isEmpty
                             ? productsList[index]
                             : _searchList[index],
-                        child: FeedProducts(),
+                        child: ServiceCardWidget(),
                       );
                     }),
                   ),

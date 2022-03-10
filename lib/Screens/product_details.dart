@@ -233,7 +233,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   itemCount: allPrices.length,
                                   itemBuilder: (context, index) => ListTile(
                                     title: Text(allPricesString[index]),
-                                    trailing: Text(allPrices[index].toString()),
+                                    trailing: Text(
+                                        '\$${allPrices[index].toString()}'),
                                   ),
                                 ),
                               )
@@ -253,47 +254,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
 
                       // const SizedBox(height: 15.0),
-                      Container(
-                        color: Theme.of(context).backgroundColor,
-                        width: double.infinity,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const SizedBox(height: 10.0),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'No reviews yet',
-                                style: TextStyle(
-                                    color: Theme.of(context).textSelectionColor,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 21.0),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Text(
-                                'Be the first review!',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 20.0,
-                                  color: themeState.darkTheme
-                                      ? Theme.of(context).disabledColor
-                                      : ColorsConsts.subTitle,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 70,
-                            ),
-                            const Divider(
-                              thickness: 1,
-                              color: Colors.grey,
-                              height: 1,
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -310,7 +270,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 30),
                   width: double.infinity,
-                  height: 400,
+                  height: 330,
                   child: ListView.builder(
                     itemCount:
                         productsList.length < 7 ? productsList.length : 7,
